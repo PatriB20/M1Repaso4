@@ -19,8 +19,8 @@ var Punto = /** @class */ (function () {
         this.y = newY;
     };
     Punto.prototype.toString = function () {
-        var xstring = this.x.toString();
-        var ystring = this.y.toString();
+        var xstring = this.x;
+        var ystring = this.y;
         return "(" + xstring + "," + ystring + ")";
     };
     Punto.prototype.distanciaAlOrigen = function () {
@@ -53,10 +53,18 @@ var Punto = /** @class */ (function () {
         }
     };
     Punto.prototype.calcularMascercano = function (puntos) {
+        var arrayp = [];
         for (var i = 0; i < puntos.length; i++) {
-            var puntoCercano = Math.min(this.calcularDistancia(puntos[i]));
-            console.log(puntoCercano);
+            var puntoCercano = this.calcularDistancia(puntos[i]);
+            arrayp.push(puntoCercano);
         }
+        var minimo = arrayp[0];
+        for (var i = 0; i < arrayp.length; i++) {
+            if (minimo > arrayp[i]) {
+                minimo = arrayp[i];
+            }
+        }
+        console.log(minimo);
     };
     return Punto;
 }());

@@ -58,13 +58,21 @@ export class Punto{
         {return 4}
     }
     public calcularMascercano(puntos:Punto[])
-    {  
+    {  let arrayp= []
         for (let i=0;i<puntos.length;i++)
        {
-           let puntoCercano = Math.min(this.calcularDistancia(puntos[i]))
-    
-        console.log(puntoCercano)
+           let puntoCercano = this.calcularDistancia(puntos[i])
+           arrayp.push(puntoCercano)
        }
+       let minimo=arrayp[0]
+       for(let i=0;i<arrayp.length;i++)
+       { if (minimo > arrayp[i])
+        {
+            minimo = arrayp[i]
+        }
+
+       }
+       console.log(minimo)
     }
         
  }
